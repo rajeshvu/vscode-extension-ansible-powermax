@@ -28,37 +28,15 @@
 4. Search for a snippet by keyword or description.
 5. Select a snippet to insert it at your cursor location.
 
-## Example Snippet
-
-Example of a snippet inserted by this extension:  
-
-```yaml
-- name: Create volume
-  register: result
-  dellemc.powermax.volume:
-      unispherehost: "{{ unispherehost }}"
-      verifycert: "{{ verifycert }}"
-      user: "{{ user }}"
-      password: "{{ password }}"
-      serial_no: "{{ serial_no }}"
-      vol_name: "{{ vol_name }}"
-      sg_name: "{{ sg_name }}"
-      size: 1
-      cap_unit: "{{ cap_unit }}"
-      append_vol_id: "{{ append_vol_id }}"
-      state: 'present'
-```
-
 ## References
 
 - https://galaxy.ansible.com/ui/repo/published/dellemc/powermax/
 - https://github.com/dell/ansible-powermax/
 
-## Author
-
-Developed and maintained by [Rajesh V U](https://www.rajeshvu.com)
-
 ## License
 
 MIT License
 
+## Author
+
+Developed and maintained by [Rajesh V U](https://www.rajeshvu.com)
