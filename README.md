@@ -1,41 +1,60 @@
-# PowerMax Ansible Snippets
+### PowerMax Ansible Snippets
 
 **PowerMax Ansible Snippets** is a Visual Studio Code extension that allows you to quickly search and insert Dell EMC PowerMax Ansible snippets directly into your editor. This extension helps you automate storage management tasks by providing ready-to-use, trusted Ansible playbook examples for PowerMax arrays.
 
+---
+
 ## Features
 
+- **Hover Suggestions**: Hover over a PowerMax module or option name to instantly view detailed documentation, including type, description, and default values. The documentation is formatted for readability and includes color-coded hints.
+- **Completion Provider**: Get intelligent suggestions for module options and their values as you type. Simply type a colon (`:`) after an option name to trigger a list of possible choices.
 - Search for Ansible snippets by keyword or description.
 - Insert PowerMax Ansible tasks into your playbooks with a single click.
-- Supports multiple PowerMax Ansible collection versions (3.1.0 and 4.0.0).
+- Supports **PowerMax Ansible collection version 4.0.0**.
 - Snippets cover common storage operations: provisioning, masking, snapshot, replication, and more.
 
 ![PowerMax Ansible Snippets Demo](src/resources/demo.gif)
 
+---
+
 ## Installation
 
-1. Open **Visual Studio Code**.
-2. Go to the **Extensions** view (`Ctrl+Shift+X`).
-3. Search for `PowerMax Ansible Snippets`.
-4. Click **Install**.
+1.  Open **Visual Studio Code**.
+2.  Go to the **Extensions** view (`Ctrl+Shift+X`).
+3.  Search for `PowerMax Ansible Snippets`.
+4.  Click **Install**.
+
+---
 
 ## Usage
 
-1. Open a YAML or Ansible playbook file in VS Code.
-2. Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on Mac).
-3. Type and select:
-   - `PowerMax Ansible Snippets - v4.0.0`  
-   - or `PowerMax Ansible Snippets - v3.1.0`
-4. Search for a snippet by keyword or description.
-5. Select a snippet to insert it at your cursor location.
+### Using Snippets via the Command Palette
+
+1.  Open a YAML or Ansible playbook file in VS Code.
+2.  Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on Mac).
+3.  Type and select: `PowerMax Ansible Snippets - v4.0.0`
+4.  Search for a snippet by keyword or description.
+5.  Select a snippet to insert it at your cursor location.
+
+### Using Hover and Autocompletion
+
+-   **Hover**: To view documentation for a module or option, simply move your mouse cursor over its name. A hover popup will appear with a formatted summary.
+-   **Autocompletion**: As you type a module option, VS Code will suggest available options. After typing a colon (`:`) and a space, the extension will suggest valid values or templates for that option.
+
+---
 
 ## References
 
-- https://galaxy.ansible.com/ui/repo/published/dellemc/powermax/
-- https://github.com/dell/ansible-powermax/
+- [https://galaxy.ansible.com/ui/repo/published/dellemc/powermax/](https://galaxy.ansible.com/ui/repo/published/dellemc/powermax/)
+- [https://github.com/dell/ansible-powermax/](https://github.com/dell/ansible-powermax/)
+
+---
 
 ## License
 
 MIT License
+
+---
 
 ## Author
 
