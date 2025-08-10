@@ -44,11 +44,11 @@
 
 ### Demos
  
-![PowerMax Ansible Snippets - Demo1](src/resources/demo1.gif)
+![PowerMax Ansible Snippets - Demo1](https://raw.githubusercontent.com/rajeshvu/vscode-extension-ansible-powermax/refs/heads/release/4.0.0/src/resources/demo1.gif)
 
-![PowerMax Ansible Snippets - Demo2](src/resources/demo2.gif)
+![PowerMax Ansible Snippets - Demo2](https://raw.githubusercontent.com/rajeshvu/vscode-extension-ansible-powermax/refs/heads/release/4.0.0/src/resources/demo2.gif)
 
-![PowerMax Ansible Snippets - Demo3](src/resources/demo3.gif)
+![PowerMax Ansible Snippets - Demo3](https://raw.githubusercontent.com/rajeshvu/vscode-extension-ansible-powermax/refs/heads/release/4.0.0/src/resources/demo3.gif)
 ---
 
 ## References
