@@ -27,7 +27,7 @@
     "url": "https://github.com/rajeshvu/vscode-extension-ansible-powermax.git"
   },
   "activationEvents": [
-      "onStartupFinished"
+      "onLanguage:yaml"
   ],
   "main": "./out/extension.js",
   "contributes": {

@@ -3,22 +3,38 @@ import { SnippetItem, SNIPPETS, Snippets } from './data/snippets';
 import { ModuleOptions, OptionDefinition, Options, MODULE_OPTIONS } from './data/options';
 
 export async function activate(context: vscode.ExtensionContext) {
-    // Register a single hover provider for all versions
+
     const hoverProvider = vscode.languages.registerHoverProvider(
-        { language: 'yaml', scheme: 'file' },
+        [
+            { language: 'yaml', scheme: 'file' }, 
+            { language: 'yaml', scheme: 'untitled' }
+        ],
         new SnippetHoverProvider()
     );
     context.subscriptions.push(hoverProvider);
 
-    // Register a single completion provider for all versions
+    //Completion provider for the command properties and values
     const completionProvider = vscode.languages.registerCompletionItemProvider(
-        { language: 'yaml', scheme: 'file' },
+        [
+            { language: 'yaml', scheme: 'file' }, 
+            { language: 'yaml', scheme: 'untitled' }
+        ],
         new SnippetCompletionProvider(),
         ':' // Trigger character
     );
     context.subscriptions.push(completionProvider);
 
-    // Register commands once for all versions
+    //Completion provider for the commands
+    const taskCompletionProvider = vscode.languages.registerCompletionItemProvider(
+        [
+            { language: 'yaml', scheme: 'file' },
+            { language: 'yaml', scheme: 'untitled' }
+        ],
+        new SnippetTaskCompletionProvider()
+    );
+    context.subscriptions.push(taskCompletionProvider);    
+
+    // Register search command
     for (const item of SNIPPETS) {
         const disposable = vscode.commands.registerCommand(
             `ansible-powermax-snippets.search-${item.version}`,
@@ -78,6 +94,43 @@ class SnippetCompletionProvider implements vscode.CompletionItemProvider {
         return isTypingValue
             ? getValueCompletionItems(options, lineText)
             : getPropertyCompletionItems(options);
+    }
+}
+
+
+class SnippetTaskCompletionProvider implements vscode.CompletionItemProvider {
+    provideCompletionItems(document: vscode.TextDocument, position: vscode.Position): vscode.ProviderResult<vscode.CompletionItem[]> {
+        const line = document.lineAt(position);
+        const lineText = line.text;
+        const lineIsNewTask = /^\s*(- name:)\s*/.test(lineText);
+
+        if (!lineIsNewTask) {
+            return undefined;
+        }
+
+        const completionItems: vscode.CompletionItem[] = [];
+        const uniqueLabels = new Set<string>();
+
+        const replaceRange = new vscode.Range(new vscode.Position(line.lineNumber,0), position);
+
+        for (const item of SNIPPETS) {
+            for (const snippet of item.snippets) {
+                if (!uniqueLabels.has(snippet.label)) {
+                    const completionItem = new vscode.CompletionItem(
+                        snippet.label,
+                        vscode.CompletionItemKind.Snippet
+                    );
+
+                    completionItem.filterText = '- name: '+ snippet.label;
+                    completionItem.range = replaceRange;
+                    completionItem.insertText = new vscode.SnippetString(snippet.body);
+                    completionItem.detail = snippet.description;
+                    completionItems.push(completionItem);
+                    uniqueLabels.add(snippet.label);
+                }
+            }
+        }
+        return completionItems;
     }
 }
 
@@ -204,17 +257,13 @@ function getPropertyCompletionItems(options: Options) {
 function formatModuleMarkdown(moduleName: string, moduleOptions: ModuleOptions, version: string): string {
     const mdLines: string[] = [];
 
-    // Title and version with color
     mdLines.push(`### <span style="color:#33cc66;">${moduleName}</span> - v${version}`);
     mdLines.push(`**Available Options:**\n`);
 
-    // Iterate through each option to create a nested list
     for (const [optionName, option] of Object.entries(moduleOptions)) {
-        // Main option name as a bold list item
         mdLines.push(`- **<span style="color:#e6954e;">${optionName}</span>**  - Type : <span style="color:#4e9fe6;">\`${option.type}\`</span>`);
 
         if (option.description) {
-            // Indent the description correctly
             const descriptionText = option.description.join(`\n  - `);
             mdLines.push(`  - ${descriptionText}`);
         }
@@ -234,12 +283,9 @@ function formatOptionMarkdown(optionName: string, option: any, indentLevel: numb
 
     const type = option.type ? `Type : <span style="color:#c0b000;">\`${option.type}\`</span>` : '';
 
-    // Main option name as a bold list item with color
     mdLines.push(`${indent}- <span style="color:#e6954e;">**\`${optionName}\`**</span> - ${type}`);
 
-    // Add properties as nested list items
     if (option.description) {
-        // Indent the description correctly
         const descriptionText = option.description.join(`\n${indent}  - `);
         mdLines.push(`${indent}  - ${descriptionText}`);
     }
@@ -259,11 +305,9 @@ function formatOptionMarkdown(optionName: string, option: any, indentLevel: numb
         mdLines.push(`${indent}  - <span style="color:#bd93f9;">_Default_</span> : \`${option.default}\``);
     }
 
-    // Recursively format suboptions
     if (option.suboptions && typeof option.suboptions === 'object') {
         mdLines.push(`${indent}  - <span style="color:#bd93f9;">**Suboptions:**</span>`);
         for (const [subName, subOption] of Object.entries(option.suboptions)) {
-            // Recursive call with an increased indent level
             mdLines.push(formatOptionMarkdown(subName, subOption, indentLevel + 1));
         }
     }

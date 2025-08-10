@@ -6,14 +6,12 @@
 
 ## Features
 
+- Supports **PowerMax Ansible collection version 4.0.0**.
+- Search for PowerMax Ansible snippets by keyword or description.
+- Insert PowerMax Ansible tasks into your playbooks with a single click.
+- Snippets cover common storage operations: provisioning, masking, snapshot, replication, and more.
 - **Hover Suggestions**: Hover over a PowerMax module or option name to instantly view detailed documentation, including type, description, and default values. The documentation is formatted for readability and includes color-coded hints.
 - **Completion Provider**: Get intelligent suggestions for module options and their values as you type. Simply type a colon (`:`) after an option name to trigger a list of possible choices.
-- Search for Ansible snippets by keyword or description.
-- Insert PowerMax Ansible tasks into your playbooks with a single click.
-- Supports **PowerMax Ansible collection version 4.0.0**.
-- Snippets cover common storage operations: provisioning, masking, snapshot, replication, and more.
-
-![PowerMax Ansible Snippets Demo](src/resources/demo.gif)
 
 ---
 
@@ -41,6 +39,13 @@
 -   **Hover**: To view documentation for a module or option, simply move your mouse cursor over its name. A hover popup will appear with a formatted summary.
 -   **Autocompletion**: As you type a module option, VS Code will suggest available options. After typing a colon (`:`) and a space, the extension will suggest valid values or templates for that option.
 
+### Demos
+ 
+![PowerMax Ansible Snippets - Demo1](src/resources/demo1.gif)
+
+![PowerMax Ansible Snippets - Demo2](src/resources/demo2.gif)
+
+![PowerMax Ansible Snippets - Demo3](src/resources/demo3.gif)
 ---
 
 ## References
