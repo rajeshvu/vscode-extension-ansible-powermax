@@ -1,4 +1,3 @@
-import { snippets_3_1_0 } from "./snippets-3.1.0";
 import { snippets_4_0_0 } from "./snippets-4.0.0";
 
 export interface SnippetItem {
@@ -12,13 +11,9 @@ export interface Snippets {
     snippets: SnippetItem[];
 }
 
-export const all_snippets: Snippets[] = [
+export const SNIPPETS: Snippets[] = [
     {
         version: '4.0.0',
         snippets: snippets_4_0_0
-    },
-    {
-        version: '3.1.0',
-        snippets: snippets_3_1_0
-    },
+    }
 ]
