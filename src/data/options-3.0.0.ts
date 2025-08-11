@@ -1,6 +1,6 @@
 import { ModuleOptions } from "./options";
 
-export const options_3_1_0: ModuleOptions = {
+export const options_3_0_0: ModuleOptions = {
     "dellemc.powermax.host": {
         "host_name": {
             "description": [
@@ -668,14 +668,14 @@ export const options_3_1_0: ModuleOptions = {
                 "The Time To Live (TTL) value for the snapshot.",
                 "If the TTL is not specified, the storage group snap details are returned.",
                 "However, to create a SG snap - TTL must be given.",
-                "If the SG snap should not have any TTL - specify TTL as C(None)."
+                "If the SG snap should not have any TTL - specify TTL as \"None\"."
             ],
             "type": "str"
         },
         "ttl_unit": {
             "description": [
-                "The unit for the I(ttl).",
-                "If no I(ttl_unit) is specified, C(days) is taken as default I(ttl_unit)."
+                "The unit for the ttl.",
+                "If no ttl_unit is specified, 'days' is taken as default ttl_unit."
             ],
             "choices": [
                 "hours",
@@ -697,7 +697,7 @@ export const options_3_1_0: ModuleOptions = {
         "snapshot_id": {
             "description": [
                 "Unique ID of the snapshot.",
-                "I(snapshot_id) is required for link, unlink, rename and delete operations.",
+                "snapshot_id is required for link, unlink, rename and delete operations.",
                 "Optional for Get snapshot details."
             ],
             "type": "int"
@@ -723,13 +723,6 @@ export const options_3_1_0: ModuleOptions = {
                 "unlinked"
             ],
             "type": "str"
-        },
-        "restore": {
-            "description": [
-                "Whether to restore a storage group to its snapshot."
-            ],
-            "type": "bool",
-            "version_added": "3.1.0"
         },
         "state": {
             "description": [

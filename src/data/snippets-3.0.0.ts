@@ -1,6 +1,6 @@
 import { SnippetItem } from "./snippets";
 
-export const snippets_3_1_0: SnippetItem[] = [
+export const snippets_3_0_0: SnippetItem[] = [
     {
         "label": "Create storage group",
         "description": "- dellemc.powermax.storagegroup",
@@ -455,16 +455,6 @@ export const snippets_3_1_0: SnippetItem[] = [
         "label": "Rename Storage Group Snapshot using snapshot_id",
         "description": "- dellemc.powermax.snapshot",
         "body": "- name: Rename Storage Group Snapshot using snapshot_id\n  dellemc.powermax.snapshot:\n    unispherehost: '{{ unispherehost }}'\n    universion: '{{ universion }}'\n    verifycert: '{{ verifycert }}'\n    user: '{{ user }}'\n    password: '{{ password }}'\n    serial_no: '{{ serial_no }}'\n    sg_name: '{{ sg_name }}'\n    snapshot_name: '{{ snapshot_name }}'\n    new_snapshot_name: '{{ new_snapshot_name }}'\n    snapshot_id: '{{ snapshot_id }}'\n    state: '{{ state_present }}'\n"
-    },
-    {
-        "label": "Restore Storage Group Snapshot using generation",
-        "description": "- dellemc.powermax.snapshot",
-        "body": "- name: Restore Storage Group Snapshot using generation\n  dellemc.powermax.snapshot:\n    unispherehost: '{{ unispherehost }}'\n    universion: '{{ universion }}'\n    verifycert: '{{ verifycert }}'\n    user: '{{ user }}'\n    password: '{{ password }}'\n    serial_no: '{{ serial_no }}'\n    sg_name: '{{ sg_name }}'\n    snapshot_name: '{{ snapshot_name }}'\n    restore: true\n    generation: '{{ generation }}'\n    state: '{{ state_present }}'\n"
-    },
-    {
-        "label": "Restore Storage Group Snapshot using snapshot_id",
-        "description": "- dellemc.powermax.snapshot",
-        "body": "- name: Restore Storage Group Snapshot using snapshot_id\n  dellemc.powermax.snapshot:\n    unispherehost: '{{ unispherehost }}'\n    universion: '{{ universion }}'\n    verifycert: '{{ verifycert }}'\n    user: '{{ user }}'\n    password: '{{ password }}'\n    serial_no: '{{ serial_no }}'\n    sg_name: '{{ sg_name }}'\n    snapshot_name: '{{ snapshot_name }}'\n    restore: true\n    snapshot_id: '{{ snapshot_id }}'\n    state: '{{ state_present }}'\n"
     },
     {
         "label": "Delete Storage Group Snapshot using generation",
