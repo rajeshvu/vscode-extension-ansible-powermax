@@ -1,6 +1,6 @@
 import { ModuleOptions } from "./options";
 
-export const options_4_0_0: ModuleOptions = {
+export const options_3_1_0: ModuleOptions = {
     "dellemc.powermax.host": {
         "host_name": {
             "description": [
@@ -372,15 +372,6 @@ export const options_4_0_0: ModuleOptions = {
             ],
             "required": true,
             "type": "str"
-        },
-        "starting_lun_address": {
-            "description": [
-                "Option to manually set the starting LUN address for the volumes in the masking view.",
-                "If not specified, the Host LUN Address will be automatically set to the next available.",
-                "Affect only MV creation, it is not idempotent"
-            ],
-            "required": false,
-            "type": "str"
         }
     },
     "dellemc.powermax.metrodr": {
@@ -574,8 +565,7 @@ export const options_4_0_0: ModuleOptions = {
             "choices": [
                 "SCSI_FC",
                 "iSCSI",
-                "NVMe_TCP",
-                "NVMe_FC"
+                "NVMe_TCP"
             ],
             "type": "str"
         },
@@ -754,6 +744,18 @@ export const options_4_0_0: ModuleOptions = {
         }
     },
     "dellemc.powermax.snapshotpolicy": {
+        "universion": {
+            "description": [
+                "Unisphere version, currently '92', '100' and '101' version is supported."
+            ],
+            "type": "int",
+            "required": false,
+            "choices": [
+                92,
+                100,
+                101
+            ]
+        },
         "snapshot_policy_name": {
             "description": [
                 "Name of the snapshot policy."
@@ -958,6 +960,15 @@ export const options_4_0_0: ModuleOptions = {
                 "Failover",
                 "Setbias"
             ]
+        },
+        "new_rdf_group": {
+            "description": [
+                "Overrides the SRDF group selection functionality and forces the creation of a new SRDF group.",
+                "PowerMax has a limited number of RDF groups. If this flag is set to True, and the RDF groups are exhausted, then SRDF link creation will fail.",
+                "If not specified, default value is 'false'."
+            ],
+            "required": false,
+            "type": "bool"
         },
         "wait_for_completion": {
             "description": [
