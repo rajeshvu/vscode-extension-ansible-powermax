@@ -102,7 +102,7 @@ class SnippetTaskCompletionProvider implements vscode.CompletionItemProvider {
     provideCompletionItems(document: vscode.TextDocument, position: vscode.Position): vscode.ProviderResult<vscode.CompletionItem[]> {
         const line = document.lineAt(position);
         const lineText = line.text;
-        const lineIsNewTask = /^\s*(- name:)\s*/.test(lineText);
+        const lineIsNewTask = /^\s*(powermax:)\s*/.test(lineText);
 
         if (!lineIsNewTask) {
             return undefined;
@@ -121,7 +121,7 @@ class SnippetTaskCompletionProvider implements vscode.CompletionItemProvider {
                         vscode.CompletionItemKind.Snippet
                     );
 
-                    completionItem.filterText = '- name: '+ snippet.label;
+                    completionItem.filterText = 'powermax:'+ snippet.label;
                     completionItem.range = replaceRange;
                     completionItem.insertText = new vscode.SnippetString(snippet.body);
                     completionItem.detail = snippet.description;
