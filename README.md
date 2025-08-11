@@ -13,7 +13,7 @@
 - **Hover Suggestions**: Hover over a PowerMax module or option name to instantly view detailed documentation, including type, description, and default values. The documentation is formatted for readability and includes color-coded hints.
 * **Intelligent Suggestions:**
     * **Module & Option Suggestions:** Get intelligent suggestions for module options and their values as you type.
-    * **Task Examples:** Type `- name:` to get a list of all available task examples to insert directly into your editor.
+    * **Task Examples:** Type `powermax:` to filter through all available task examples and insert directly into your editor.
 * **Inline Documentation:** Hover over any PowerMax module or option to instantly view detailed documentation. The documentation is formatted for readability and includes color-coded hints, along with details on type, description, and default values.
 
 ---
