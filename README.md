@@ -1,4 +1,4 @@
-### PowerMax Ansible Snippets
+## PowerMax Ansible Snippets
 
 **PowerMax Ansible Snippets** is a Visual Studio Code extension that allows you to quickly search and insert Dell EMC PowerMax Ansible snippets directly into your editor. This extension helps you automate storage management tasks by providing ready-to-use, trusted Ansible playbook examples for PowerMax arrays.
 
