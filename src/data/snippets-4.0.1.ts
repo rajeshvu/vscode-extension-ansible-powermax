@@ -1,6 +1,6 @@
 import { SnippetItem } from "./snippets";
 
-export const snippets_4_0_0: SnippetItem[] = [
+export const snippets_4_0_1: SnippetItem[] = [
     {
         "label": "Create storage group",
         "description": "- dellemc.powermax.storagegroup",
