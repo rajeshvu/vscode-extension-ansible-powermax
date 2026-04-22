@@ -1,6 +1,6 @@
 import { ModuleOptions } from "./options";
 
-export const options_4_0_1: ModuleOptions = {
+export const options_4_0_2: ModuleOptions = {
     "dellemc.powermax.host": {
         "host_name": {
             "description": [

@@ -6,7 +6,7 @@
 
 ## Features
 
-- Supports **PowerMax Ansible collection version 4.0.1**.
+- Supports **PowerMax Ansible collection version 4.0.2**.
 - Search for PowerMax Ansible snippets by keyword or description.
 - Insert PowerMax Ansible tasks into your playbooks with a single click.
 - Snippets cover common storage operations: provisioning, masking, snapshot, replication, and more.
@@ -33,7 +33,7 @@
 
 1.  Open a YAML or Ansible playbook file in VS Code.
 2.  Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on Mac).
-3.  Type and select: `PowerMax Ansible Snippets - v4.0.1`
+3.  Type and select: `PowerMax Ansible Snippets - v4.0.2`
 4.  Search for a snippet by keyword or description.
 5.  Select a snippet to insert it at your cursor location.
 
@@ -44,11 +44,11 @@
 
 ### Demos
  
-![PowerMax Ansible Snippets - Demo1](https://raw.githubusercontent.com/rajeshvu/vscode-extension-ansible-powermax/refs/heads/release/4.0.1/src/resources/demo1.gif)
+![PowerMax Ansible Snippets - Demo1](https://raw.githubusercontent.com/rajeshvu/vscode-extension-ansible-powermax/refs/heads/release/4.0.2/src/resources/demo1.gif)
 
-![PowerMax Ansible Snippets - Demo2](https://raw.githubusercontent.com/rajeshvu/vscode-extension-ansible-powermax/refs/heads/release/4.0.1/src/resources/demo2.gif)
+![PowerMax Ansible Snippets - Demo2](https://raw.githubusercontent.com/rajeshvu/vscode-extension-ansible-powermax/refs/heads/release/4.0.2/src/resources/demo2.gif)
 
-![PowerMax Ansible Snippets - Demo3](https://raw.githubusercontent.com/rajeshvu/vscode-extension-ansible-powermax/refs/heads/release/4.0.1/src/resources/demo3.gif)
+![PowerMax Ansible Snippets - Demo3](https://raw.githubusercontent.com/rajeshvu/vscode-extension-ansible-powermax/refs/heads/release/4.0.2/src/resources/demo3.gif)
 ---
 
 ## References
