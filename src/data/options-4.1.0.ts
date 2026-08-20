@@ -1,6 +1,6 @@
 import { ModuleOptions } from "./options";
 
-export const options_4_0_2: ModuleOptions = {
+export const options_4_1_0: ModuleOptions = {
     "dellemc.powermax.host": {
         "host_name": {
             "description": [
@@ -741,6 +741,17 @@ export const options_4_0_2: ModuleOptions = {
             "type": "bool",
             "version_added": "3.1.0"
         },
+        "force": {
+            "description": [
+                "Whether to force delete the snapshot.",
+                "Force deletion is required when the snapshot has a different number of source volumes than the current storage group configuration.",
+                "This can occur when LUNs are added to a storage group after a snapshot is taken.",
+                "The I(force) option is only supported with I(snapshot_id), not with I(generation)."
+            ],
+            "type": "bool",
+            "default": false,
+            "version_added": "3.2.0"
+        },
         "state": {
             "description": [
                 "Define whether the snapshot should exist or not."
@@ -982,6 +993,16 @@ export const options_4_0_2: ModuleOptions = {
             ],
             "required": false,
             "type": "bool"
+        },
+        "rdf_target_sg_name": {
+            "description": [
+                "The name of the remote (R2) storage group on the target array.",
+                "Used when the R2 storage group should have a different name from the R1 (source) storage group.",
+                "If not specified, the R1 storage group name is used as the R2 storage group name.",
+                "Applicable only when creating an SRDF link."
+            ],
+            "required": false,
+            "type": "str"
         }
     },
     "dellemc.powermax.storagegroup": {
@@ -1087,6 +1108,26 @@ export const options_4_0_2: ModuleOptions = {
                 "present-in-group",
                 "absent-in-group"
             ]
+        },
+        "rdf_target_sg_name": {
+            "description": [
+                "The name of the remote (R2) storage group on the target array.",
+                "Used when the R2 storage group has a different name from the R1 (source) storage group.",
+                "If not specified and I(rdf_auto_resolve_target) is false, the R1 storage group name is used.",
+                "Applicable only for SRDF-protected storage groups."
+            ],
+            "type": "str",
+            "required": false
+        },
+        "rdf_auto_resolve_target": {
+            "description": [
+                "When true, automatically queries the array to discover the actual remote storage group name.",
+                "Ignored if I(rdf_target_sg_name) is specified.",
+                "Applicable only for SRDF-protected storage groups."
+            ],
+            "type": "bool",
+            "required": false,
+            "default": false
         },
         "host_io_limit": {
             "description": [
@@ -1215,6 +1256,26 @@ export const options_4_0_2: ModuleOptions = {
                 "Appends volume id to the volume name, Applicable from V4 (Juniper)."
             ],
             "type": "bool"
+        },
+        "rdf_target_sg_name": {
+            "description": [
+                "The name of the remote (R2) storage group on the target array.",
+                "Used when the R2 storage group has a different name from the R1 (source) storage group.",
+                "If not specified and I(rdf_auto_resolve_target) is false, the R1 storage group name is used.",
+                "Applicable only when creating volumes in SRDF-protected storage groups."
+            ],
+            "type": "str",
+            "required": false
+        },
+        "rdf_auto_resolve_target": {
+            "description": [
+                "When true, automatically queries the array to discover the actual remote storage group name.",
+                "Ignored if I(rdf_target_sg_name) is specified.",
+                "Applicable only when creating volumes in SRDF-protected storage groups."
+            ],
+            "type": "bool",
+            "required": false,
+            "default": false
         },
         "state": {
             "description": [

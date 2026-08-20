@@ -1,6 +1,6 @@
 import { SnippetItem } from "./snippets";
 
-export const snippets_4_0_2: SnippetItem[] = [
+export const snippets_4_1_0: SnippetItem[] = [
     {
         "label": "Create storage group",
         "description": "- dellemc.powermax.storagegroup",
@@ -470,6 +470,11 @@ export const snippets_4_0_2: SnippetItem[] = [
         "label": "Delete Storage Group Snapshot using snapshot_id",
         "description": "- dellemc.powermax.snapshot",
         "body": "- name: Delete Storage Group Snapshot using snapshot_id\n  dellemc.powermax.snapshot:\n    unispherehost: '{{ unispherehost }}'\n    verifycert: '{{ verifycert }}'\n    user: '{{ user }}'\n    password: '{{ password }}'\n    serial_no: '{{ serial_no }}'\n    sg_name: '{{ sg_name }}'\n    snapshot_name: '{{ snapshot_name }}'\n    snapshot_id: '{{ snapshot_id_1 }}'\n    state: '{{ state_absent }}'\n"
+    },
+    {
+        "label": "Force delete Storage Group Snapshot with disparate LUN config",
+        "description": "- dellemc.powermax.snapshot",
+        "body": "- name: Force delete Storage Group Snapshot with disparate LUN config\n  dellemc.powermax.snapshot:\n    unispherehost: '{{ unispherehost }}'\n    verifycert: '{{ verifycert }}'\n    user: '{{ user }}'\n    password: '{{ password }}'\n    serial_no: '{{ serial_no }}'\n    sg_name: '{{ sg_name }}'\n    snapshot_name: '{{ snapshot_name }}'\n    snapshot_id: '{{ snapshot_id_1 }}'\n    force: true\n    state: '{{ state_absent }}'\n"
     },
     {
         "label": "Create a snapshot policy",
